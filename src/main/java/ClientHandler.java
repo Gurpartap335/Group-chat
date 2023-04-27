@@ -6,11 +6,13 @@ public class ClientHandler implements Runnable{
 
 
     // keep track of all our clients
+    // broadcast messages to the multiple clients
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
-    private Socket socket;
+    private Socket socket; // this will be the socket that passed from server class. establish a connection between client and server
     private BufferedReader bufferedReader; // read data
     private BufferedWriter bufferedWriter; // send data
     private String clientUsername;
+
 
     public ClientHandler(Socket socket) {
         try {
@@ -18,8 +20,8 @@ public class ClientHandler implements Runnable{
             this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.clientUsername = bufferedReader.readLine();
-            clientHandlers.add(this);
-            broadcastMessage("Server: " + clientUsername + " has entered the chat");
+            clientHandlers.add(this); // this represents clientHandler object
+            broadcastMessage("Server: " + clientUsername + " has entered the chat!");
         } catch (IOException e) {
             closeEveryThing(socket, bufferedReader, bufferedWriter);
         }
@@ -40,11 +42,10 @@ public class ClientHandler implements Runnable{
         }
     }
 
-    private void broadcastMessage(String messageFromClient) {
+    private void broadcastMessage(String messageToSend) {
         for (ClientHandler clientHandler: clientHandlers) {
             try {
                 if (!clientHandler.clientUsername.equals(clientUsername)) {
-
                     clientHandler.bufferedWriter.write(messageToSend);
                     clientHandler.bufferedWriter.newLine();
                     clientHandler.bufferedWriter.flush();
@@ -80,3 +81,12 @@ public class ClientHandler implements Runnable{
 
 
 }
+
+/**
+ * In java byte stream ends with word stream(handle binary data such as images, audio or video).
+ * character stream ends with word writer
+ *
+ * streams in java?
+ * bufferedReader and bufferedWriter are also streams
+ *
+ */
