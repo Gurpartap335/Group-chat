@@ -1,23 +1,14 @@
-A socket is an endpoint of communication between 2 devices.
-Socket is object in java.
-Two streams input and output.
-
-ServerSocket
-- waits for incoming client connection requests.
-- accepts connections and a socket is created. 
-
-Multiple Client chats
-
-Thread 
-- A thread is a sequence of instructions within a program that can be
-- executed independently of other code.
-
-- Thread share a memory space.
-
-- when you launch an executable, it is running in a thread within a 
-  thread. 
+## Group-Chat
+This is group chat application create using sockets in which you can multiply users
+can interact with each other.
 
 
-https://howtodoinjava.com/java/stream/java-streams-by-examples/
+### To run the application
+First run the server in intellij Idea or your preferred IDE.
+Then run Client.
 
-https://docs.oracle.com/javase/tutorial/networking/index.html
+
+### For creating multiple clients in intellij Idea : 
+- Edit configuration
+- Modify Options
+- Allow multiple instances.

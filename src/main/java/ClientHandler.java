@@ -9,8 +9,8 @@ public class ClientHandler implements Runnable{
     // broadcast messages to the multiple clients
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
     private Socket socket; // this will be the socket that passed from server class. establish a connection between client and server
-    private BufferedReader bufferedReader; // read data
-    private BufferedWriter bufferedWriter; // send data
+    private BufferedReader bufferedReader; // read data from input character stream
+    private BufferedWriter bufferedWriter; // send/write data to character output stream
     private String clientUsername;
 
 
@@ -88,5 +88,8 @@ public class ClientHandler implements Runnable{
  *
  * streams in java?
  * bufferedReader and bufferedWriter are also streams
+ *
+ * buffer means like storage
+ * Buffers are required when producers and consumers operate at the different rates.
  *
  */

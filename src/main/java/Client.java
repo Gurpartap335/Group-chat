@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Client {
     private Socket socket;
-    private BufferedWriter bufferedWriter;
     private BufferedReader bufferedReader;
+    private BufferedWriter bufferedWriter;
     private String username;
 
     public Client(Socket socket, String username) {
